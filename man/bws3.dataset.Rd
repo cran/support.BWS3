@@ -1,16 +1,20 @@
 \name{bws3.dataset}
 \alias{bws3.dataset}
+
 \title{
 Creating a dataset suitable for Case 3 best-worst scaling analysis
 }
+
 \description{
-The function creates a dataset suitable for Case 3 best-worst scaling analysis using a modeling approach.
+This function creates a dataset suitable for Case 3 best-worst scaling analysis using a modeling approach.
 }
+
 \usage{
 bws3.dataset(data, id = "id", response, choice.sets, categorical.attributes = NULL,
  continuous.attributes = NULL, common = NULL, optout = FALSE, asc = NULL,
  model = "maxdiff", detail = FALSE, ...)
 }
+
 \arguments{
   \item{data}{
 A data frame containing a respondent dataset.
@@ -50,8 +54,9 @@ A logical variable describing whether the response variables that are assigned t
 Optional arguments; currently not in use.
 }
 }
+
 \details{
-The function \code{bws3.dataset()} creates a dataset for Case 3 BWS analysis using the modeling approach, which uses discrete choice models. When using the function, a model type must be selected from among the three standards models: maximum difference (maxdiff/paired), sequential, and rank-ordered. The argument \code{model} is set according to the selected model. See Lancsar et al. (2013) and Marley and Pihlens (2012) for details on the three models, and Hensher et al. (2015, Appendix 6B) for details on the dataset structure for Case 3 BWS.
+This function creates a dataset for Case 3 BWS analysis using the modeling approach, which uses discrete choice models. When using the function, a model type must be selected from among the three standards models: maximum difference (maxdiff/paired), sequential, and rank-ordered. The argument \code{model} is set according to the selected model. See Lancsar et al. (2013) and Marley and Pihlens (2012) for details on the three models, and Hensher et al. (2015, Appendix 6B) for details on the dataset structure for Case 3 BWS.
 
 The respondent dataset, in which each row corresponds to a respondent, is assigned to the argument \code{data}. The dataset must include the respondent's identification number (id) variable, the block variable (\code{BLOCK}), and the response variables, each indicating the alternatives (profiles) that were selected as the best and worst for each question. Other variables in the respondent dataset are treated as the respondents' characteristics such as gender and age. The variables relating to respondents' characteristics are also stored in the resultant dataset created by the function. The names of the id and response variables are left to the discretion of the user. The id variable is assigned to the argument \code{id} (the default is \code{"id"}). The response variables are assigned to the argument \code{response} in list format: each element of the list, corresponding to a Case 3 BWS question, is a named vector that contains alternative numbers selected as the best and worst in the Case 3 BWS question (see the Examples section below for details). 
 
@@ -59,8 +64,9 @@ An object containing the choice sets, which follows the S3 class \code{"cedes"} 
 
 If alternative specific constants (ASCs) are needed for the model you choose, a vector with binary values is set according to your model specification and then assigned to the argument \code{asc}. The \eqn{i}-th element in the vector corresponds to the \eqn{i}-th alternative, and the value of \code{1} indicates the presence of ASC in the corresponding alternative and the value of \code{0} indicates its absence. For example, suppose that each BWS question has four alternatives and the 1st, 2nd, and 3rd alternatives in the model have an ASC each. In this case, a vector \code{c(1, 1, 1, 0)} is assigned to \code{asc}. Consequently, the resultant dataset includes four ASCs: \code{ASC1} taking the value of \code{1} for the 1st alternative and \code{0} otherwise, \code{ASC2} taking the value of \code{1} for the 2nd alternative and \code{0} otherwise, \code{ASC3} taking the value of \code{1} for the 3rd alternative and \code{0} otherwise, and \code{ASC4} taking the value of \code{0} for all the alternatives (\code{ASC4} is not needed in the analysis).
 }
+
 \value{
-The function returns a dataset for analysis, which is an object of S3 class \code{"bws3dataset"} and inherits from data frame format. The dataset for the maxdiff (paired) model contains the following variables as well as attribute variables and respondents' characteristic variables: 
+This function returns a dataset for analysis, which is an object of S3 class \code{"bws3dataset"} and inherits from data frame format. The dataset for the maxdiff (paired) model contains the following variables as well as attribute variables and respondents' characteristic variables: 
 
 \item{id}{
 A respondent's identification number; the actual name of this variable is set according to the id variable in the respondent dataset if the argument \code{id} is set by users.}
@@ -114,15 +120,19 @@ A state variable taking the value of \code{1} for the possible best alternatives
 A binary variable that takes the value of \code{1} when a possible best or worst alternative is selected by respondents and \code{0} otherwise.}
 
 }
+
 \references{
 See the help page for \code{\link[support.BWS3]{support.BWS3-package}}.
 }
+
 \author{
 Hideo Aizaki
 }
+
 \seealso{
 \code{\link[support.BWS3]{support.BWS3-package}}, \code{\link[support.CEs]{rotation.design}}, \code{\link[survival]{clogit}}
 }
+
 \examples{
 # The following lines of code construct choice sets for Case 3 BWS
 # using rotation.design() in the package support.CEs; create a dataset
@@ -201,4 +211,5 @@ bws3dat <- bws3.dataset(
 # Fit the model
 clogit(RES ~ A2 + A3 + B2 + B3 + C2 + C3 + D2 + D3 + strata(STR), bws3dat)
 }
-\keyword{datagen}
+
+\keyword{manip}

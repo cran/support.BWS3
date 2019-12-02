@@ -1,4 +1,10 @@
 Changes to package support.BWS3
 
+2019-12-02, version 0.2-0
+- Shortened the title.
+- Added functions bws3.response and bws3.design.
+- Added and revised help files.
+- Modified function bws3.dataset.
+
 2019-09-21, version 0.1-1
 - First release to CRAN.

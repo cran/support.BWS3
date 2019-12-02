@@ -1,5 +1,8 @@
 export(
-"bws3.dataset"
+"bws3.dataset",
+"bws3.design",
+"bws3.response"
 )
-importFrom("stats", "model.matrix", "reshape", "time")
+
+importFrom("stats", "model.matrix", "reshape", "time", "runif")
 

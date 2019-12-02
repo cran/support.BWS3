@@ -26,6 +26,7 @@ function(data,
   nrespondents  <- nrow(data)
   nalternatives <- design$design.information$nalternatives
   if (!is.null(common)) nalternatives <- nalternatives + 1
+  if (isTRUE(optout))   nalternatives <- nalternatives + 1
   nquestions    <- design$design.information$nquestions
   nattributes   <- design$design.information$nattributes
   nblocks       <- design$design.information$nblocks
@@ -94,7 +95,7 @@ function(data,
     X <- design.matrix.dcm(choice.sets = design,
                            categorical.attributes = categorical.attributes,
                            continuous.attributes  = continuous.attributes,
-                           common = common,
+                           common = common, optout = optout,
                            asc = asc)
     original.X <- X
     SUBQES <- rep(1:nalternatives, each = nrow(X))
@@ -238,7 +239,7 @@ function(data,
     X <- design.matrix.dcm(choice.sets = design,
                            categorical.attributes = categorical.attributes,
                            continuous.attributes  = continuous.attributes,
-                           common = common,
+                           common = common, optout = optout,
                            asc = asc)
     original.X <- X
     rtn <- merge(x = rtn.dat, y = X, by = c("BLOCK", "QES", "ALT"))
@@ -349,7 +350,7 @@ function(data,
     X <- design.matrix.dcm(choice.sets = design,
                            categorical.attributes = categorical.attributes,
                            continuous.attributes  = continuous.attributes,
-                           common = common,
+                           common = common, optout = optout,
                            asc = asc)
     original.X <- X
     rtn <- merge(x = rtn.dat, y = X, by = c("BLOCK", "QES", "ALT"))
