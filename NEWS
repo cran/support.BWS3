@@ -1,5 +1,8 @@
 Changes to package support.BWS3
 
+2024-02-01, version 0.2-1
+- Added a dataset.
+
 2019-12-02, version 0.2-0
 - Shortened the title.
 - Added functions bws3.response and bws3.design.

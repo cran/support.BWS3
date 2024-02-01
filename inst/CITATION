@@ -1,16 +1,16 @@
 citHeader("To cite support.BWS3 in publications use:")
 
-citEntry(
-  entry       = "Manual",
+bibentry(
+  bibtype     = "Manual",
   title       = "{support.BWS3: Tools for Case 3 Best-Worst Scaling}",
   author      = "Hideo Aizaki",
-  year        = 2019,
-  note        = "R package version 0.2-0",
+  year        = 2024,
+  note        = "R package version 0.2-1",
   url         = "https://CRAN.R-project.org/package=support.BWS3",
 
   textVersion = 
-  paste("Aizaki H (2019).",
+  paste("Aizaki H (2024).",
         "support.BWS3: Tools for Case 3 Best-Worst Scaling.",
-        "R package version 0.2-0.",
+        "R package version 0.2-1.",
         "URL https://CRAN.R-project.org/package=support.BWS3.")
 )
